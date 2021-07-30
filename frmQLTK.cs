@@ -70,6 +70,7 @@ namespace CRUD_ENTITY.NET_CORE
         {
             var id = SV.GetListService().Where(c => c.Acc == txt_Acc.Text).Select(c => c.Id).FirstOrDefault();
             MessageBox.Show(SV.DeleteACC(id), " Thông báo Của UBND xã Thuân Chính");
+            SV.getListACCFromDB();
             SV.GetListService();
             LoadData();
         }
