@@ -4,6 +4,7 @@ using System.Linq;
 
 using CRUD_ENTITY.NET_CORE.Context;
 using CRUD_ENTITY.NET_CORE.Models;
+
 using Microsoft.EntityFrameworkCore;
 
 namespace CRUD_ENTITY.NET_CORE
@@ -20,7 +21,7 @@ namespace CRUD_ENTITY.NET_CORE
             _lstAccounts = new List<Account>();
             _dbcontext = new DatabaseContext();
             getListACCFromDB();
-            lstRoles= _dbcontext.Roles.AsNoTracking().ToList();
+            lstRoles = _dbcontext.Roles.AsNoTracking().ToList();
         }
 
         public List<Role> GetRoles()
@@ -31,7 +32,7 @@ namespace CRUD_ENTITY.NET_CORE
         {
             return _lstAccounts;
         }
-        
+
         public void getListACCFromDB()
         {
             _lstAccounts = _dbcontext.Accounts.AsNoTracking().ToList();
@@ -53,7 +54,7 @@ namespace CRUD_ENTITY.NET_CORE
         public string DeleteACC(Guid id)
         {
             // đối tượng ACC trong bảng CSDL sau đó tiên hành Xóa
-            Account acc = _dbcontext.Accounts.ToList().FirstOrDefault(c=>c.Id==id);
+            Account acc = _dbcontext.Accounts.ToList().FirstOrDefault(c => c.Id == id);
             _dbcontext.Accounts.Remove(acc);
             _dbcontext.SaveChanges();
             return "Xóa thành Công";

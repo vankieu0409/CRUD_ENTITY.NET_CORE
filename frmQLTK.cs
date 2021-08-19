@@ -20,7 +20,7 @@ namespace CRUD_ENTITY.NET_CORE
         {
             SV = new Services();
             InitializeComponent();
-            LoadData(); 
+            LoadData();
             foreach (var x in SV.GetRoles())
             {
                 cbx_roleld.Items.Add(x.Name);
